@@ -5,24 +5,24 @@ This is a detailed breakdown of how an example implementation of the DEEP SORT a
 
 ![image](https://github.com/user-attachments/assets/78518dfb-a6f7-46f4-a093-c9fd311c0b20)
 
-# 1. Input Video Frames
+### 1. Input Video Frames
 * The 42 Second Soccer highlights clip is feeded into the initial object detection layer, frame-by-frame
 * Each of these individual frames are used to detect the two classes of interest: people and ball
 * Bounding boxes are drawn around the objects detected within these individual frames
 
-# 2. Object Detection
+### 2. Object Detection
 * We use the backbone of a Fast-RCNN model pre-trained on the COCO dataset, granting us the abilities to distinguish between different object classes, and for our purposes, the people and ball classes
 * The model has two layers of output, with one head preserved for classification of the detected objects, and the other for regressing bounding box coordinates
 * Since we're only interested in two classes, the people class is identified with the ID 1 and the ball class is labeled with ID 37
 * The output for the bounding box coordinates results in 4 values, reserved for height, width, and a co-ordinate point
 * Other object detection models like YOLO can also be used for working alongside the DEEP SORT Algorithm
 
-# 3. Feature Extraction
+### 3. Feature Extraction
 * For the purposes of multi-object tracking, we need to leverage a Deep Appearance Desciptor, which is essentially an additional neural network/model which extracts detailed features/embeddings from the feature maps produced by the earlier Fast-RCNN object detection model
 * In our case, we use a pre-trained ResNET model, rather than a traditional model, that is specifically tuned for image feature/embedding extraction
 * The result is a feature vector of high-dimensionality that can distinguish unique objects regardless of any potential overlap or close distance
 
-# 4. Kalman Filter Equations for Predictions
+### 4. Kalman Filter Equations for Predictions
 * The Kalman Filters utilize Gaussian probability distributions to keep track of the states of detected objects over a period of time, across any occlusions/obstacles, to ensure consistent tracking of the same objects continues
 * It works by combining noisy measurements with a prediction based on the previous state and dynamics of the system, usually a measurement step, which in this case is the IoU-Base distance discussed below
 * The equations used for these filters can be divided into two components:
@@ -39,7 +39,7 @@ This is a detailed breakdown of how an example implementation of the DEEP SORT a
 
 ![image](https://github.com/user-attachments/assets/da07ac4a-8781-4ede-9cba-ac5061e5f61f)
 
-# 5. IoU-Based Distance Computation
+### 5. IoU-Based Distance Computation
 * IoU is used as a key measure of similarity between the predicted location of a track and a newly detected object
 * When a new detection is made in each frame, we determine if it corresponds to any existing tracks by comparing the bounding box of each track to the bounding boxes of the new detections using IoU
 * We also make use of this distance for the computation of the cost-matrix that is necessary for the Hungarian Algorithm during Data Association
