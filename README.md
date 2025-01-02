@@ -46,7 +46,7 @@ This is a detailed breakdown of how an example implementation of the DEEP SORT a
   * Lower IoU → Higher Distance → Higher Cost: A small overlap most likely indicates different objects, so it is unfavorable to match them
   * Higher IoU → Lower Distance → Lower Cost: A large overlap most likely indicates that the track and detection are the same object, and it is favorable to match them
 
-# 6. Hungarian Algorithm (Linear Assignment)
+### 6. Hungarian Algorithm (Linear Assignment)
 * The algorithm is used to match the detections from a given frame to the existing tracks based on a cost matrix that quantifies the similarity or "cost" of associating each track with each detection
 * As previously described in the IoU Distance section, the Hungarian Algorithm's purpose is to minimize the cost function/total assignment cost to determine the best assignment between a detection and tracks
 * The cost function/matrix is based on two components we previously covered:
@@ -56,3 +56,12 @@ This is a detailed breakdown of how an example implementation of the DEEP SORT a
   * A detection is matched with a track, so the track is updated
   * A new detection is made and a new corresponding track is initialized
   * A track is deleted/removed if no matching detections are made for several frames
+
+## Instructions to Run the Project
+Download the necessary video file using yt-dlp github library to extract individual frames of any sports clip. The output frames and video are also being uploaded so if you want to run it again, make sure to rename those output files. The excalidraw architecture is attached individually and as part of the Deep SORT Breakdown explanation.
+
+## Results
+The results containing the imposed bounding boxes around both the players and the ball, alongside their IDs for observing the persistence of tracking across time can be found above in the Output_Video.mp4
+
+## MORE FEATURES TO COME!!!
+There are plenty of new additional features in the pipeline that are going to be implemented soon to further expand the scope of the project. This includes allowing for real-time object tracking on Sports streams across a variety of sports rather than simply relying on existing videos. Furthermore, a web application allowing users to choose the objects they'd like to track for different sports is also underway. For example, tracking the motion/swing of the bat in baseball in addition to the ball and players.
