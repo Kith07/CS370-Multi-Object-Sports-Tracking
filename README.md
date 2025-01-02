@@ -1,5 +1,12 @@
 # CS370-Multi-Object-Sports-Tracking
+## Instructions to Run the Project
+Download the necessary video file using yt-dlp github library to extract individual frames of any sports clip. The output frames and video are also being uploaded so if you want to run it again, make sure to rename those output files. The excalidraw architecture is attached individually and as part of the Deep SORT Breakdown explanation.
 
+## Results
+The results containing the imposed bounding boxes around both the players and the ball, alongside their IDs for observing the persistence of tracking across time can be found above in the Output_Video.mp4
+
+## MORE FEATURES TO COME!!!
+There are plenty of new additional features in the pipeline that are going to be implemented soon to further expand the scope of the project. This includes allowing for real-time object tracking on Sports streams across a variety of sports rather than simply relying on existing videos. Furthermore, a web application allowing users to choose the objects they'd like to track for different sports is also underway. For example, tracking the motion/swing of the bat in baseball in addition to the ball and players.
 ## DEEP-SORT Architecture Breakdown
 This is a detailed breakdown of how an example implementation of the DEEP SORT algorithm can be applied to a Soccer Clip for the purposes of detecting players and the ball. Each stage from the input video frames up to the final multi-obtject tracking is explained below:
 
@@ -56,12 +63,3 @@ This is a detailed breakdown of how an example implementation of the DEEP SORT a
   * A detection is matched with a track, so the track is updated
   * A new detection is made and a new corresponding track is initialized
   * A track is deleted/removed if no matching detections are made for several frames
-
-## Instructions to Run the Project
-Download the necessary video file using yt-dlp github library to extract individual frames of any sports clip. The output frames and video are also being uploaded so if you want to run it again, make sure to rename those output files. The excalidraw architecture is attached individually and as part of the Deep SORT Breakdown explanation.
-
-## Results
-The results containing the imposed bounding boxes around both the players and the ball, alongside their IDs for observing the persistence of tracking across time can be found above in the Output_Video.mp4
-
-## MORE FEATURES TO COME!!!
-There are plenty of new additional features in the pipeline that are going to be implemented soon to further expand the scope of the project. This includes allowing for real-time object tracking on Sports streams across a variety of sports rather than simply relying on existing videos. Furthermore, a web application allowing users to choose the objects they'd like to track for different sports is also underway. For example, tracking the motion/swing of the bat in baseball in addition to the ball and players.
