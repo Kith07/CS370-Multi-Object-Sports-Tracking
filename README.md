@@ -3,6 +3,8 @@
 ## DEEP-SORT Architecture Breakdown
 This is a detailed breakdown of how an example implementation of the DEEP SORT algorithm can be applied to a Soccer Clip for the purposes of detecting players and the ball. Each stage from the input video frames up to the final multi-obtject tracking is explained below:
 
+![image](https://github.com/user-attachments/assets/78518dfb-a6f7-46f4-a093-c9fd311c0b20)
+
 # 1. Input Video Frames
 * The 42 Second Soccer highlights clip is feeded into the initial object detection layer, frame-by-frame
 * Each of these individual frames are used to detect the two classes of interest: people and ball
@@ -34,6 +36,8 @@ This is a detailed breakdown of how an example implementation of the DEEP SORT a
   * Updated state: xk = xk- + Kk * (Zk - Hk * xk-) --> Gives the updated state of the object with the actual measurement obtained from Zk, the measurement matrix Hk and the Kalman Gain, Kk
   * Updated covariance: Pk = (I - Kk * Hk) * Pk- --> Gives the updated covariance for the updated state of the object
 * It is precisly due to the Kalman filters that object detections can be continued/maintained when they're temporarily lost/occluded in real-time as they leverage the previous state, measurement and Gaussian probability distributions to predict future states/trajectory of any given object
+
+![image](https://github.com/user-attachments/assets/da07ac4a-8781-4ede-9cba-ac5061e5f61f)
 
 # 5. IoU-Based Distance Computation
 * IoU is used as a key measure of similarity between the predicted location of a track and a newly detected object
